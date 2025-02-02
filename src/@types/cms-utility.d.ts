@@ -2,7 +2,7 @@ declare module '@henrique1204/cms-utility' {
   import type { UseBoundStore, StoreApi } from 'zustand';
 
   type ContentControl = {
-    onReceiveValue: () => Promise<string>;
+    onReceiveValue: () => Promise<Record<string, string | string[]>>;
     onUpdateValue: (id: string, value: string) => Promise<void>;
   };
 
@@ -12,13 +12,13 @@ declare module '@henrique1204/cms-utility' {
     type: string;
     label: string;
     defaultValue: any;
-  } & ContentControl;
+  };
 
   type ContentGroup = {
     id: string;
     title: string;
     fields: string[];
-  };
+  } & ContentControl;
 
   type CMSSchemaStore = {
     groups: ContentGroup[];

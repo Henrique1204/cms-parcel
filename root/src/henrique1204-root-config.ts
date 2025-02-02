@@ -2,7 +2,10 @@ import { registerApplication, start } from 'single-spa';
 import { constructApplications, constructRoutes, constructLayoutEngine } from 'single-spa-layout';
 import microfrontendLayout from './microfrontend-layout.html';
 
-const props = {};
+const props = {
+  appName: 'Root',
+  onLogout: () => console.log('Logout'),
+};
 
 const routes = constructRoutes(microfrontendLayout, {
   props,
